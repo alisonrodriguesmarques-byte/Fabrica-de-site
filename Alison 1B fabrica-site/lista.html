@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a</title>
+</head>
+<body>
+    <div id="conteiner"></div>
+    <script>
+        const textos = [
+            "Dia-1",
+            "Dia 2",
+            "Dia 3",
+            "Dia 4"
+        ];
+        const conteiner = document.getElementById("conteiner");
+
+        textos.forEach((texto, i) => {
+            const div = document.createElement("div");
+            div.className = "dia";
+
+            const input = document.createElement("input");
+            input.type = "checkbox";
+            input.id = "dia" + (i + 1);
+
+            const label = document.createElement("label");
+            label.htmlFor = input.id;
+            label.textContent = texto;
+
+            div.appendChild(input);
+            div.appendChild(label);
+            conteiner.appendChild(div);
+        });
+    </script>
+</body>
+</html>
