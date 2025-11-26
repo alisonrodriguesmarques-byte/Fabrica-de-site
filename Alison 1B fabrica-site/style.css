@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(to right,#6e00d5,#aed6ff);
+    background-image: linear-gradient(to right,#6e00d5,#8282ff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,9 +75,7 @@ button{
     background-color: #5e17eb;
     border-radius: 5px;
 }
-#voltar{
-    display: none;
-}
+
 input#resposta{
     padding: 5px;
     width: 90%;
@@ -89,10 +87,39 @@ input#resposta{
 footer{
     text-align: center;
     position: absolute;
-    top: 450px;
-    color: rgba(85, 85, 85, 0.733);
+    top: 96%;
+    left: 2%;
+    color: rgb(254, 254, 254);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 10px;
+}
+a{
+    text-decoration: none;
+    color: #000000;
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
 }
+/* butao */
+#menuBtn{
+    background-color: rgb(255, 255, 255);
+    color: #5e17eb;
+    border: 1px solid #5e17eb;
+    position: absolute;
+    top: 20px;
+    left: 3px;
+}
+#menu{
+  background: transparent;
+  border:none;
+  position: absolute;
+}
+nav li {
+    list-style: none;
+    position: relative;
+    top: -30px;
+    }

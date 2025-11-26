@@ -3,10 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Quiz bíblico📖</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+ <div id="conteiner-m">   
+    <button id="menuBtn">Menu</button>
+
+      <nav id="menu" style="display: none;">
+         <ul>
+             <li><a href="formulario.html">📳fale conosco</a></li>
+             <li></li>
+             <li></li>
+         </ul>
+      </nav>
+ </div> 
+    <div id="quiz-conteiner">
+        <span id="numero-p"></span>
+        <h2>QUIZ 📖</h2>
+        <p id="pergunta"></p>
+        <input type="text" placeholder="Resposta" id="resposta" autocomplete="off">
+        <button onclick="botao()" id="butao">responder</button>
+        <button onclick="voltar()" id="voltar">voltar ao quiz</button>
+        <p id="texto"></p>
+    </div>
     
+   <footer>
+    &copy; Desenvolvido por Alison Rodrigues Carvalho Marques
+   </footer>
+
+    <script>
+        const btn = document.getElementById("menuBtn");
+        const menu = document.getElementById("menu");
+
+btn.addEventListener("click", () => {
+  if (menu.style.display === "none") {
+    menu.style.display = "block";
+  } else {
+    menu.style.display = "none";
+  }
+});
+
+        let lista = [
+            ['Qual o nome do pai de Davi?', 'Jesse'],
+            ['Quem construiu a arca?', 'Noé'],
+            ['Qual era o nome da esposa de Abraão?', 'Sara'],
+            ['Quantos discípulos Jesus tinha?', '12'],
+            ['Quem foi lançado na cova dos leões?', 'Daniel'],
+            ['Quem traiu Jesus?', 'Judas'],
+            ['Quem abriu o Mar Vermelho?', 'Moisés'],
+            ['Qual apóstolo negou Jesus três vezes?', 'Pedro'],
+            ['Onde Jesus nasceu?', 'Belém'],
+            ['Quem foi o homem mais forte da Bíblia?', 'Sansão']
+        ];
+
+        let indice = 0;
+
+        document.getElementById("numero-p").innerHTML = (indice + 1) + "/" + lista.length;
+
+        document.getElementById('voltar').style.display = 'none';
+
+        document.getElementById('pergunta').innerText = lista[indice][0];
+
+
+        function removerAcentos(texto) {
+    return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
+        function botao() {
+            let resposta = document.getElementById('resposta').value.trim();
+
+            if (resposta === "") {
+                alert("Por favor, preencha a resposta");
+                return;
+            }
+
+            // Verifica acerto
+           if (
+        removerAcentos(resposta.toLowerCase()) === 
+        removerAcentos(lista[indice][1].toLowerCase())
+    ) {
+        document.getElementById("texto").innerText = `A resposta "${resposta}" é a certa 😁👍`;
+    } else {
+                document.getElementById("texto").innerText = `A resposta "${resposta}" está errada ❌`;
+                return;
+            }
+
+            // Avança
+            indice++;
+
+            if (indice < lista.length) {
+                document.getElementById("numero-p").innerText = (indice + 1) + "/" + lista.length;
+                document.getElementById("pergunta").innerText = lista[indice][0];
+                document.getElementById("resposta").value = "";
+            } else {
+                // Fim do quiz
+                document.getElementById("pergunta").innerText = "✝️Fim do quiz!📖";
+                document.getElementById("resposta").style.display = "none";
+                document.getElementById("butao").style.display = "none";
+                document.getElementById("voltar").style.display = ""; // Mostra botão voltar
+            }
+        }
+
+        function voltar() {
+            indice = 0;
+            document.getElementById('pergunta').innerText = lista[indice][0];
+            document.getElementById("numero-p").innerText = (indice + 1) + "/" + lista.length;
+            document.getElementById("resposta").style.display = "";
+            document.getElementById('butao').style.display = "";
+            document.getElementById("resposta").value = "";
+            document.getElementById("texto").innerText = "";
+            document.getElementById('voltar').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
