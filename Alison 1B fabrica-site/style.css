@@ -114,12 +114,11 @@ a{
     left: 3px;
 }
 #menu{
-  background: transparent;
+  background: #ffffff;
   border:none;
   position: absolute;
+  top: 20px;
 }
 nav li {
     list-style: none;
-    position: relative;
-    top: -30px;
     }
