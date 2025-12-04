@@ -87,8 +87,8 @@ btn.addEventListener("click", () => {
     ) {
         document.getElementById("texto").innerText = `A resposta "${resposta}" é a certa 😁👍`;
     } else {
-                document.getElementById("texto").innerText = `A resposta "${resposta}" está errada ❌`;
-                return;
+                document.getElementById("texto").innerText = `A sua resposta "${resposta}" está errada ❌, a resposta certa é "${lista [indice][1]}"`;
+            
             }
 
             // Avança
